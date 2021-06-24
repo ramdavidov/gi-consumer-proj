@@ -8,7 +8,7 @@
           <div class="form-btn-group">
             <ram-button
               iconLoading="assets/LoginPage/loading-white.svg"
-              :isLoading="false"
+              :isLoading="isLoading"
               text="כניסה"
             />
             <ram-button
@@ -44,6 +44,8 @@ export default {
           isRequired: true,
           placeholder: "מייל",
           info: "כתובת המייל איתה נרשמת לחשבונית ירוקה",
+          pattern: "{}",
+          isInfoLink: false,
         },
         {
           type: "password",
@@ -52,17 +54,28 @@ export default {
           isRequired: true,
           placeholder: "סיסמה",
           info: "שכחת סיסמה?",
+          pattern: ".{6,}",
+          isInfoLink: true,
         },
       ],
     };
   },
+  computed: {
+    isLoading() {
+      return this.$store.getters.isLoading;
+    },
+  },
   methods: {
     async onDoLogin(userCred) {
+      this.$store.commit({ type: "setIsLoading", isLoading: true });
+
       await this.$store.dispatch({ type: "login", userCred });
       try {
         this.$router.push(`/dashboard`);
       } catch {
         console.log("login failed");
+      } finally {
+        this.$store.commit({ type: "setIsLoading", isLoading: false });
       }
     },
   },

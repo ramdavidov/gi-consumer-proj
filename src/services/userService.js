@@ -5,12 +5,14 @@ export const userService = {
 }
 
 async function login(userCred) {
-    const user = await httpService.post('account/login', userCred)
-    try {
-        // console.log('user from API:', user)
-        return user
-    } catch (err) {
-        console.log('Unauthorized attempt')
-    }
-
+    return new Promise((resolve, reject) => {
+        setTimeout(async () => {
+            const user = await httpService.post('account/login', userCred)
+            try {
+                resolve(user)
+            } catch (err) {
+                reject(err)
+            }
+        }, 3000)
+    })
 }

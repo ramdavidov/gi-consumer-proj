@@ -1,6 +1,9 @@
 <template>
   <section class="user-dashboard" v-if="user">
-    <div class="dashboard-main container">
+    <div class="loading-container" v-if="isLoading">
+      <ram-loader icon="assets/LoginPage/loading-green.svg" width="300px" />
+    </div>
+    <div v-else class="dashboard-main container">
       <h2>היי, {{ fullName }}</h2>
       <div class="card">
         <h3>פרטי חשבון:</h3>
@@ -31,11 +34,12 @@
 </template>
 
 <script>
+import { RamLoader } from "vue-sfc-rami-test";
 import BusinessPreview from "../cmps/UserDashboard/BusinessPreview.vue";
 
 export default {
   computed: {
-    testThis() {
+    isLoading() {
       return this.$store.getters.isLoading;
     },
     user() {
@@ -46,8 +50,15 @@ export default {
       return firstName + " " + lastName;
     },
   },
+  created() {
+    this.$store.commit({ type: "setIsLoading", isLoading: true });
+    setTimeout(() => {
+      this.$store.commit({ type: "setIsLoading", isLoading: false });
+    }, 1000);
+  },
   components: {
     BusinessPreview,
+    RamLoader,
   },
 };
 </script>
