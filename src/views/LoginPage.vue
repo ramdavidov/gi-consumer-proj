@@ -44,7 +44,7 @@ export default {
           isRequired: true,
           placeholder: "מייל",
           info: "כתובת המייל איתה נרשמת לחשבונית ירוקה",
-          pattern: "{}",
+          pattern: ".{3,}",
           isInfoLink: false,
         },
         {
