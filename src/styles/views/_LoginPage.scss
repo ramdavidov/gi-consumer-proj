@@ -2,19 +2,10 @@
     display: flex;
     height: 1100px;
 
-    .green-logo {
-        background: url(~@/assets/LoginPage/green_logo.svg) 100% no-repeat;
-        position: absolute;
-        height: 34px;
-        width: 221px;
-        right: 86px;
-        top: 38px;
-    }
-
     .login-illus {
         background: #ffdcdc url(~@/assets/LoginPage/green_login_page.svg) 100% no-repeat;
         background-size: 85%;
-        background-position-x: 230px ;
+        background-position-x: 230px;
 
         background-color: #ffdcdc;
         flex-basis: 50%;
@@ -47,6 +38,7 @@
                 margin-bottom: 70px;
             }
             h4 {
+                margin-top: 30px;
                 font-weight: 500;
                 font-size: 22px;
                 color: #0084f4;
@@ -68,22 +60,12 @@
 
                 input {
                     font-family: almoni-neue;
-                    font-size: 18px;
                 }
 
                 .error-info-container {
-                    display: flex;
-                    flex-direction: column;
-                    background-color: orange;
-
                     .field-error {
                         color: red;
                     }
-                }
-
-                // this should be removed after updating the package.
-                .field-error {
-                    color: red;
                 }
             }
 
@@ -94,12 +76,7 @@
                 button {
                     font-family: almoni-neue;
                     font-weight: 600;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
                     font-size: 16px;
-                    height: 56px;
-                    cursor: pointer;
                 }
             }
         }

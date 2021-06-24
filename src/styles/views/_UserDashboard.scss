@@ -1,5 +1,18 @@
 .user-dashboard {
-    // background-color: red;
+    height: 100vh;
+    direction: rtl;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    background-color: #f6f7f8;
+
+    .dashboard-main {
+        margin-top: 100px;
+
+        .user-card {
+            display: grid;
+            grid-template-columns: 120px 300px;
+            padding-inline-start: 10px;
+        }
+    }
 }
