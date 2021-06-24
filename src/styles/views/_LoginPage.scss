@@ -7,7 +7,7 @@
         background-size: 85%;
         background-position-x: 230px;
 
-        background-color: #ffdcdc;
+        // background-color: #ffdcdc;
         flex-basis: 50%;
         display: flex;
         justify-content: flex-end;
@@ -79,6 +79,35 @@
                     font-size: 16px;
                 }
             }
+        }
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .login-page {
+        .login-illus {
+            background-size: 90%;
+            background-position-x: center;
+        }
+
+        .login-main {
+            align-items: center;
+            .form-container {
+                margin-inline-start: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .login-page {
+        height: 100vh;
+        justify-content: center;
+        .login-illus {
+            display: none;
+        }
+        .login-main {
+            padding: 220px 10px;
         }
     }
 }
